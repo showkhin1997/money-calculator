@@ -37,8 +37,10 @@ function incomeSaving() {
     const balance = document.getElementById('balance');
     const balanceText = parseFloat(balance.innerText);
 
-    const remainingBalance = balanceText - savingAmmount;
-    document.getElementById('remaining-balance').innerText = remainingBalance;
+    if (balanceText != 0) {
+        const remainingBalance = balanceText - savingAmmount;
+        document.getElementById('remaining-balance').innerText = remainingBalance;
+    }
 
     // reset input field
     incomeInputField.value = '';
