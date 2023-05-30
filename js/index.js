@@ -11,7 +11,12 @@ function incomeExpenseCalculate() {
     const balance = incomeInputText - totalExpense;
     document.getElementById('total-expense').innerText = totalExpense;
     document.getElementById('balance').innerText = balance;
-    console.log(totalExpense);
+
+    // reset input field
+    incomeInputField.value = '';
+    foodInputField.value = '';
+    rentInputField.value = '';
+    othersInputField.value = '';
 }
 
 document.getElementById('calculate-button').addEventListener('click', function () {
