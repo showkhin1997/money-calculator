@@ -9,8 +9,16 @@ function incomeExpenseCalculate() {
     const othersInputText = parseFloat(othersInputField.value);
     const totalExpense = foodInputText + rentInputText + othersInputText;
     const balance = incomeInputText - totalExpense;
-    document.getElementById('total-expense').innerText = totalExpense;
-    document.getElementById('balance').innerText = balance;
+
+    // not a number NAN handle
+    if (isNaN(balance)) {
+
+    }
+    else {
+        document.getElementById('total-expense').innerText = totalExpense;
+        document.getElementById('balance').innerText = balance;
+    }
+
 
     // reset input field
     // incomeInputField.value = '';
@@ -31,8 +39,13 @@ function incomeSaving() {
     const incomeInputText = parseFloat(incomeInputField.value);
 
     const savingAmmount = incomeInputText * savingAmmountInput();
-    console.log(savingAmmount);
-    document.getElementById('saving-ammount').innerText = savingAmmount;
+    // not a number NAN handle
+    if (isNaN(savingAmmount)) {
+
+    }
+    else {
+        document.getElementById('saving-ammount').innerText = savingAmmount;
+    }
 
     const balance = document.getElementById('balance');
     const balanceText = parseFloat(balance.innerText);
