@@ -13,12 +13,42 @@ function incomeExpenseCalculate() {
     document.getElementById('balance').innerText = balance;
 
     // reset input field
-    incomeInputField.value = '';
+    // incomeInputField.value = '';
     foodInputField.value = '';
     rentInputField.value = '';
     othersInputField.value = '';
 }
 
+function savingAmmountInput() {
+    const savingAmmountField = document.getElementById('saving-input');
+    const savingAmmountText = parseInt(savingAmmountField.value) / 100;
+    savingAmmountField.value = '';
+    return savingAmmountText;
+}
+
+function incomeSaving() {
+    const incomeInputField = document.getElementById('income-input-field');
+    const incomeInputText = parseFloat(incomeInputField.value);
+
+    const savingAmmount = incomeInputText * savingAmmountInput();
+    console.log(savingAmmount);
+    document.getElementById('saving-ammount').innerText = savingAmmount;
+
+    const balance = document.getElementById('balance');
+    const balanceText = parseFloat(balance.innerText);
+
+    const remainingBalance = balanceText - savingAmmount;
+    document.getElementById('remaining-balance').innerText = remainingBalance;
+
+    // reset input field
+    incomeInputField.value = '';
+
+}
+
 document.getElementById('calculate-button').addEventListener('click', function () {
-    incomeExpenseCalculate()
+    incomeExpenseCalculate();
+});
+
+document.getElementById('save-button').addEventListener('click', function () {
+    incomeSaving();
 });
